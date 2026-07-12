@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Level Builder</title>
+  <style>
+    :root { color-scheme: dark; }
+    body { margin: 0; display: flex; height: 100vh; background: #0b0b14; color: #f5f2ff; font-family: monospace; }
+    #sidebar { width: 300px; padding: 1rem; background: #14141f; overflow-y: auto; box-sizing: border-box; }
+    #sidebar h1 { font-size: 1.1rem; margin: 0 0 1rem; }
+    #sidebar label { display: block; margin: 0.8rem 0 0.25rem; color: #8888aa; font-size: 0.85rem; }
+    #sidebar input, #sidebar select, #sidebar button { font-family: inherit; width: 100%; box-sizing: border-box; padding: 0.4rem; background: #0b0b14; color: #f5f2ff; border: 1px solid #2c2c44; border-radius: 4px; }
+    #sidebar button { cursor: pointer; margin-top: 0.5rem; }
+    #sidebar button:hover { border-color: #8888aa; }
+    #save { border-color: #2dd4a7; }
+    .row { display: flex; gap: 0.5rem; }
+    #message { margin-top: 1rem; min-height: 3em; color: #ffd166; font-size: 0.85rem; }
+    #errors { color: #f66; font-size: 0.85rem; white-space: pre-wrap; }
+    #dirty { color: #ffd166; }
+    #stage-wrap { flex: 1; display: flex; align-items: center; justify-content: center; }
+    canvas { background: #0b0b14; border: 1px solid #2c2c44; max-width: 100%; max-height: 100%; }
+    .hint { color: #55556e; font-size: 0.78rem; margin-top: 1.2rem; line-height: 1.4; }
+  </style>
+</head>
+<body>
+  <div id="sidebar">
+    <h1>Level Builder <span id="dirty"></span></h1>
+
+    <label for="picker">Level</label>
+    <select id="picker"></select>
+    <button id="new">New level…</button>
+
+    <label for="id">id</label>
+    <input id="id" />
+
+    <label>grid (cols × rows)</label>
+    <div class="row">
+      <input id="cols" type="number" min="4" />
+      <input id="rows" type="number" min="3" />
+    </div>
+
+    <label for="win">winCount (cells to win)</label>
+    <input id="win" type="number" min="1" />
+
+    <button id="undo">Undo</button>
+    <button id="save">Save to game</button>
+
+    <div id="message"></div>
+    <div id="errors"></div>
+
+    <p class="hint">
+      Click or drag on the grid to block/unblock cells. Guardrails
+      refuse edits that would break the level (with a reason) — and the
+      save endpoint re-validates with the same validateLevel() the game
+      uses, so an invalid level can never land in src/levels/.
+    </p>
+  </div>
+  <div id="stage-wrap">
+    <canvas id="stage" width="960" height="540"></canvas>
+  </div>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

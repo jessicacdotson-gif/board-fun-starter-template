@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glyph Logger</title>
+  <style>
+    body { font-family: monospace; background: #111; color: #0f0; margin: 0; padding: 1rem; }
+    #status { color: #fff; margin-bottom: 1rem; }
+    button { font-family: inherit; margin-bottom: 1rem; }
+    h2 { color: #fff; font-size: 1rem; margin: 1.5rem 0 0.5rem; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 0.25rem 0.5rem; border-bottom: 1px solid #333; }
+    tr.began { color: #ff0; }
+    #events { max-height: 40vh; overflow-y: auto; border: 1px solid #333; padding: 0.5rem; font-size: 0.9rem; }
+    #events .start { color: #ff0; font-weight: bold; }
+    #events .end { color: #6cf; font-weight: bold; }
+    #events .end.vanished { color: #f66; }
+  </style>
+</head>
+<body>
+  <div id="status">Loading…</div>
+  <button id="clear">Clear log</button>
+
+  <h2>Current contacts (live snapshot — may show stale rows, check the event log below)</h2>
+  <table>
+    <thead>
+      <tr><th>contactId</th><th>type</th><th>glyphId</th><th>phase</th><th>x</th><th>y</th><th>orientation</th><th>isTouched</th></tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+
+  <h2>Event log (timestamped, newest first — red ENDED = vanished with no Ended/Canceled frame ever seen)</h2>
+  <div id="events"></div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

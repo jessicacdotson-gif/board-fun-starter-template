@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "demo",
+  "grid": { "cols": 12, "rows": 7, "cellPx": 120 },
+  "winCount": 8,
+  "blocked": [
+    { "col": 5, "row": 3 },
+    { "col": 6, "row": 3 },
+    { "col": 2, "row": 1 },
+    { "col": 9, "row": 5 }
+  ]
+}

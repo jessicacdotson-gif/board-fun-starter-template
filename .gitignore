@@ -1,0 +1,10 @@
+node_modules/
+dist/
+dist-debug/
+*.webapp.zip
+board.config.json
+
+# Piece-recognition models are licensed per piece set — download yours
+# from the Board Developer Portal into public/model.tflite. Never
+# commit one to a public repo (see docs/wiki/raw/board-deploy-findings.md).
+*.tflite
