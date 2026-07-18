@@ -9,8 +9,9 @@ This template was distilled from a real two-player game my husband and I built
 reusable is here: the process, the tooling, and the hardware findings
 that cost us real evenings to learn.
 
-<!-- TODO(GIF): hero GIF — level builder: drag cells → Save to game → playable -->
-<!-- TODO(PHOTO): the physical Board with pieces on it -->
+![A Board.fun console on a coffee table — a glowing tabletop touchscreen with physical game pieces resting on it](docs/images/board-console.jpg)
+
+*The hardware this template targets: the screen senses and reacts to the physical pieces sitting on it.*
 
 ## Quick start
 
