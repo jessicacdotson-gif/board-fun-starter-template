@@ -1,10 +1,10 @@
 # Board.fun Game Starter
 
 A starter template for building games for [Board.fun](https://board.fun)
-hardware — a tabletop console that senses physical game pieces on its
-touchscreen — with **Claude Code as your engineering team**.
+hardware, a tabletop console that senses physical game pieces on its
+touchscreen with **Claude Code as your engineering team**.
 
-It was distilled from a real two-player game my husband and I built
+This template was distilled from a real two-player game my husband and I built
 (neither of us is a game developer). The game stays ours; everything
 reusable is here: the process, the tooling, and the hardware findings
 that cost us real evenings to learn.
@@ -63,16 +63,16 @@ This template encodes a product process, not just code:
 
 ## Hard-won platform findings (free with the template)
 
-- The device **never delivers contact-removal events** — pieces just
+- The device **never delivers contact-removal events**, pieces just
   vanish from the per-frame snapshot. Everything here reconciles.
 - **glyphId 0 is "unrecognized"**, shared by bare finger taps and
-  badly-seated pieces — and on some builds a bare tap arrives as a
+  badly-seated pieces and on some builds a bare tap arrives as a
   Glyph-type contact. Filter by glyphId, not contact type.
-- **Duplicate pieces share one glyphId** — track by contactId.
+- **Duplicate pieces share one glyphId**, track by contactId.
 - **No per-touch player attribution exists.** Player identity must be
   designed in via zones or turns
   ([docs/spec/player-identity.md](docs/spec/player-identity.md)).
-- **`web-pack` silently reuses appIds** across apps packed from one
+- **`web-pack` silently reuses appIds**, across apps packed from one
   directory; **installs need `--timeout 10m`** on slow Wi-Fi; **no
   console-log access** on device (debug via on-screen HUD +
   screenshots). All in [docs/wiki/raw/](docs/wiki/raw/).
